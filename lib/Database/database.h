@@ -7,19 +7,19 @@
 #define FRIDGE1_DATABASE_H
 
 #include <string>
-#include <list>
+#include <vector>
 
 using namespace std;
 
 class Database {
 private:
-    list<string> storage;
+    vector<string> storage;
 
 public:
     Database();
     bool add(string message);
     bool remove(string message);
-    list<string> getAll();
+    vector<string> getAll();
     bool clear();
 };
 

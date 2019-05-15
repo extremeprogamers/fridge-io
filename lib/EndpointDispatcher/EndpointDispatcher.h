@@ -10,13 +10,16 @@ using namespace std;
 class EndpointDispatcher
 {
 private:
-    Database* database;
+    Database *database;
 
 public:
-    EndpointDispatcher::EndpointDispatcher();
-    list<string> getMessages();
-    void addMessage(string message);
-    void deleteMessage(string message);
+    EndpointDispatcher()
+    {
+        database = new Database();
+    }
+    const char *getMsgs();
+    const char *postMsg(string msg, bool isValid);
+    const char *deleteMsg(string msg, bool isValid);
 };
 
 #endif

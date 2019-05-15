@@ -4,22 +4,34 @@
 
 using namespace std;
 
-EndpointDispatcher::EndpointDispatcher()
+const char *EndpointDispatcher::getMsgs()
 {
-    database = new Database();
+    return database->getAll()[0].c_str();
 }
 
-list<string> EndpointDispatcher::getMessages()
+const char *EndpointDispatcher::postMsg(string msg, bool isValid)
 {
-    return database->getAll();
+    if (isValid)
+    {
+        database->add(msg);
+        return "Work";
+    }
+    else
+    {
+        return "Fail";
+    }
 }
 
-void EndpointDispatcher::addMessage(string message)
+const char *EndpointDispatcher::deleteMsg(string msg, bool isValid)
 {
-    database->add(message);
-}
 
-void EndpointDispatcher::deleteMessage(string message)
-{
-    database->remove(message);
+    if (isValid)
+    {
+        database->remove(msg);
+        return "Work";
+    }
+    else
+    {
+        return "Fail";
+    }
 }

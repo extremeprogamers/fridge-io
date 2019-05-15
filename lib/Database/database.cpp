@@ -9,16 +9,16 @@ Database :: Database() {
 }
 
 bool Database :: add(string message) {
-    storage.push_front(message);
+    storage.push_back(message);
     return true;
 }
 
 bool Database ::remove(string message) {
-    storage.remove(message);
+    storage.erase(storage.begin());
     return true;
 }
 
-list<string> Database :: getAll() {
+vector<string> Database :: getAll() {
     return storage;
 }
 
