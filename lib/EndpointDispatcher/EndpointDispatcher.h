@@ -4,6 +4,7 @@
 #include <string>
 #include <list>
 #include "database.h"
+#include "HtmlComposer.h"
 
 using namespace std;
 
@@ -11,11 +12,13 @@ class EndpointDispatcher
 {
 private:
     Database *database;
+    HtmlComposer *htmlComposer;
 
 public:
     EndpointDispatcher()
     {
         database = new Database();
+        htmlComposer = new HtmlComposer();
     }
     const char *getMsgs();
     const char *postMsg(string msg, bool isValid);

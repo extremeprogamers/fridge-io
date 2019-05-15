@@ -6,7 +6,7 @@ using namespace std;
 
 const char *EndpointDispatcher::getMsgs()
 {
-    return database->getAll()[0].c_str();
+    return htmlComposer->composeGetMessages();
 }
 
 const char *EndpointDispatcher::postMsg(string msg, bool isValid)
@@ -14,11 +14,11 @@ const char *EndpointDispatcher::postMsg(string msg, bool isValid)
     if (isValid)
     {
         database->add(msg);
-        return "Work";
+        return htmlComposer->composeAdd(msg, true);
     }
     else
     {
-        return "Fail";
+        return htmlComposer->composeAdd(msg, false);
     }
 }
 
@@ -28,10 +28,10 @@ const char *EndpointDispatcher::deleteMsg(string msg, bool isValid)
     if (isValid)
     {
         database->remove(msg);
-        return "Work";
+        return htmlComposer->composeRemoved(msg, true);
     }
     else
     {
-        return "Fail";
+        return htmlComposer->composeRemoved(msg, false);
     }
 }

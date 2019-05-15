@@ -1,3 +1,6 @@
+#ifndef RUN_TEST
+#define RUN_TEST
+
 #include "gtest/gtest.h"
 #include <string>
 #include <list>
@@ -52,3 +55,4 @@ int main(int argc, char** argv)
 }
 
 
+#endif
