@@ -23,6 +23,12 @@ public:
     const char *getMsgs();
     const char *postMsg(string msg, bool isValid);
     const char *deleteMsg(string msg, bool isValid);
+    void setDatabase(Database& new_database) {
+        *database = new_database;
+    }
+    void setHtmlComposer(HtmlComposer& new_composer) {
+        *htmlComposer = new_composer;
+    }
 };
 
 #endif

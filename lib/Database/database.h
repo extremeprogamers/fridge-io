@@ -8,10 +8,11 @@
 
 #include <string>
 #include <vector>
+#include <abstract_database.h>
 
 using namespace std;
 
-class Database {
+class Database : public AbstractDatabase {
 private:
     vector<string> storage;
 
