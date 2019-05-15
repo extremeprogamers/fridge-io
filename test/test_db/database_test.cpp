@@ -1,7 +1,3 @@
-//
-// Created by Marcin Włoczko on 2019-04-25.
-//
-
 #include "gtest/gtest.h"
 #include <string>
 #include <list>
@@ -49,8 +45,10 @@ TEST(database, clear) {
     ASSERT_EQ(result.size(), 0);
 }
 
-
-
-
+int main(int argc, char** argv)
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
 
 
