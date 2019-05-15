@@ -1,24 +1,24 @@
-#include <Arduino.h>
+#include <stdio.h>
 #include <output_export.h>
 
 
 
 void output_start(unsigned int baudrate)
 {
-    Serial.begin(115200);
+    ;
 }
 
 void output_char(int c)
 {
-    Serial.write(c);
+    putchar(c);
 }
 
 void output_flush(void)
 {
-    Serial.flush();
+    fflush(stdout);
 }
 
 void output_complete(void)
 {
-   Serial.end();
+   ;
 }
