@@ -1,6 +1,3 @@
-//
-// Created by Marcin Włoczko on 2019-04-25.
-//
 #pragma once
 
 #ifndef FRIDGE1_DATABASE_H
@@ -8,7 +5,7 @@
 
 #include <string>
 #include <vector>
-#include <abstract_database.h>
+#include "AbstractDatabase.h"
 
 using namespace std;
 
@@ -17,11 +14,10 @@ private:
     vector<string> storage;
 
 public:
-    Database();
     bool add(string message);
     bool remove(string message);
     vector<string> getAll();
     bool clear();
 };
 
-#endif //FRIDGE1_DATABASE_H
+#endif
