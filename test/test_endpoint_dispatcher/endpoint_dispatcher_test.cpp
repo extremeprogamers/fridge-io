@@ -21,7 +21,7 @@ class MockComposer : public HtmlComposer
 public:
     MOCK_METHOD0(composeSite, const char *(void));
     MOCK_METHOD0(composeGetMessages, const char *(void));
-    MOCK_METHOD1(composeMessage, const char *(string));
+    MOCK_METHOD1(composeMessage, string(string));
     MOCK_METHOD2(composeAdd, const char *(string, bool));
     MOCK_METHOD2(composeRemoved, const char *(string, bool));
 };
