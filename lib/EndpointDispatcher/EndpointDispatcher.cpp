@@ -1,5 +1,6 @@
 #include <string>
 #include <list>
+#include <iostream>
 #include "EndpointDispatcher.h"
 
 using namespace std;
