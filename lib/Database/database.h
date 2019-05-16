@@ -1,7 +1,7 @@
 //
 // Created by Marcin Włoczko on 2019-04-25.
 //
-
+#pragma once
 
 #ifndef FRIDGE1_DATABASE_H
 #define FRIDGE1_DATABASE_H

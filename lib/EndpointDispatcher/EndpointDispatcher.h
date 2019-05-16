@@ -1,29 +1,31 @@
+#pragma once
+
 #ifndef FRIDGE1_ENDPOINT_DISPATCHER_H
 #define FRIDGE1_ENDPOINT_DISPATCHER_H
 
 #include <string>
 #include <list>
 #include "database.h"
-#include "HtmlComposer.h"
+#include "HtmlComposerImpl.h"
 
 using namespace std;
 
 class EndpointDispatcher
 {
 private:
-    Database *database;
+    AbstractDatabase *database;
     HtmlComposer *htmlComposer;
 
 public:
     EndpointDispatcher()
     {
         database = new Database();
-        htmlComposer = new HtmlComposer();
+        htmlComposer = new HtmlComposerImpl();
     }
     const char *getMsgs();
     const char *postMsg(string msg, bool isValid);
     const char *deleteMsg(string msg, bool isValid);
-    void setDatabase(Database& new_database) {
+    void setDatabase(AbstractDatabase& new_database) {
         *database = new_database;
     }
     void setHtmlComposer(HtmlComposer& new_composer) {
