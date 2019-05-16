@@ -19,7 +19,9 @@
 // const char *ssid = "YOUR_SSID";
 // const char *password = "YOUR_PASSWORD";
 
-// EndpointDispatcher *dispatcher = new EndpointDispatcher();
+// Database *db = new Database();
+// HtmlComposerImpl *composer = new HtmlComposerImpl();
+// EndpointDispatcher *dispatcher = new EndpointDispatcher(db, composer);
 
 // void notFound(AsyncWebServerRequest *request)
 // {

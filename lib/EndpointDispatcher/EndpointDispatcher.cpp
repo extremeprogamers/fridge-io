@@ -1,12 +1,13 @@
 #include <string>
 #include <list>
+#include <iostream>
 #include "EndpointDispatcher.h"
 
 using namespace std;
 
 const char *EndpointDispatcher::getMsgs()
 {
-    return htmlComposer->composeGetMessages();
+    return this->htmlComposer->composeGetMessages();
 }
 
 const char *EndpointDispatcher::postMsg(string msg, bool isValid)
