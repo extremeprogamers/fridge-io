@@ -29,11 +29,9 @@ public:
 TEST(dispatcher, getMsgs)
 {
     //given
-    EndpointDispatcher *dispatcher = new EndpointDispatcher();
     MockDatabase mockDatabase;
     MockComposer mockComposer;
-    dispatcher->setDatabase(mockDatabase);
-    dispatcher->setHtmlComposer(mockComposer);
+    EndpointDispatcher *dispatcher = new EndpointDispatcher(&mockDatabase, &mockComposer);
 
     EXPECT_CALL(mockComposer, composeGetMessages())
         .Times(1)
@@ -48,40 +46,43 @@ TEST(dispatcher, getMsgs)
 
 TEST(dispatcher, postMsg)
 {
-    EndpointDispatcher *dispatcher = new EndpointDispatcher();
+    //given
     MockDatabase mockDatabase;
     MockComposer mockComposer;
-    dispatcher->setDatabase(mockDatabase);
-    dispatcher->setHtmlComposer(mockComposer);
-
-    const char *messages = dispatcher->postMsg("test", true);
+    EndpointDispatcher *dispatcher = new EndpointDispatcher(&mockDatabase, &mockComposer);
 
     EXPECT_CALL(mockDatabase, add("test"))
         .Times(1);
 
-    EXPECT_CALL(mockComposer, composeAdd("", true))
+    EXPECT_CALL(mockComposer, composeAdd("test", true))
         .Times(1)
         .WillOnce(Return("<html><body>Added msg</body></html>"));
 
+    //when
+    const char *messages = dispatcher->postMsg("test", true);
+
+    //then
     ASSERT_EQ(messages, "<html><body>Added msg</body></html>");
 }
 
-TEST(dispatcher, deleteMsg){
-    EndpointDispatcher *dispatcher = new EndpointDispatcher();
+TEST(dispatcher, deleteMsg)
+{
+    //given
     MockDatabase mockDatabase;
     MockComposer mockComposer;
-    dispatcher->setDatabase(mockDatabase);
-    dispatcher->setHtmlComposer(mockComposer);
-
-    const char *messages = dispatcher->deleteMsg("test", true);
+    EndpointDispatcher *dispatcher = new EndpointDispatcher(&mockDatabase, &mockComposer);
 
     EXPECT_CALL(mockDatabase, remove("test"))
         .Times(1);
 
-    EXPECT_CALL(mockComposer, composeRemoved("", true))
+    EXPECT_CALL(mockComposer, composeRemoved("test", true))
         .Times(1)
         .WillOnce(Return("<html><body>Removed msg</body></html>"));
 
+    //when
+    const char *messages = dispatcher->deleteMsg("test", true);
+
+    //then
     ASSERT_EQ(messages, "<html><body>Removed msg</body></html>");
 }
 

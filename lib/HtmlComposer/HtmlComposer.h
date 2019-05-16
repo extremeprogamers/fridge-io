@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "database.h";
+#include "database.h"
 
 using namespace std;
 

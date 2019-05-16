@@ -17,10 +17,10 @@ private:
     HtmlComposer *htmlComposer;
 
 public:
-    EndpointDispatcher()
+    EndpointDispatcher(AbstractDatabase* db, HtmlComposer* comp)
     {
-        database = new Database();
-        htmlComposer = new HtmlComposerImpl();
+        this->database = db;
+        this->htmlComposer = comp;
     }
     const char *getMsgs();
     const char *postMsg(string msg, bool isValid);

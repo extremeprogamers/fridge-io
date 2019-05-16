@@ -7,7 +7,7 @@ using namespace std;
 
 const char *EndpointDispatcher::getMsgs()
 {
-    return htmlComposer->composeGetMessages();
+    return this->htmlComposer->composeGetMessages();
 }
 
 const char *EndpointDispatcher::postMsg(string msg, bool isValid)

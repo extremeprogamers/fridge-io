@@ -12,4 +12,5 @@ public:
     virtual bool remove(string message) = 0;
     virtual vector<string> getAll() = 0;
     virtual bool clear() = 0;    
+    virtual ~AbstractDatabase() {}
 };
