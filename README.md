@@ -8,6 +8,8 @@
 5. Verify `Build` task ends up with `SUCCESS`.
 
 ## Code rules:
+- Używamy camel case
+- Pliki *.h powinny być tylko szkieletem, cała implementacja w pliku *.cpp
 - Nazwy klas i plików z wielkich liter
 - Komentarze i kod po angielsku
 - Klasy podzielone na pliki *.h i *.cpp
