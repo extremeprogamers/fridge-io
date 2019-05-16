@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<body>
+    <div class="container">
+        <h3>Notes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor</td>
+                    <td><a href="/notes/delete/1" class="waves-effect waves-light btn red">DELETE</a></td>
+                </tr>
+            </tbody>
+        </table>
+        </ul>
+        <br> <br>
+        <form action="/notes/add" method="post">
+            <b>New note:</b> <input type="text" name="note">
+            <input class="waves-light btn green" type="submit" value="Add note">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -66,20 +66,24 @@ TEST(dispatcher, postMsg)
     ASSERT_EQ(messages, "<html><body>Added msg</body></html>");
 }
 
-// TEST(endpoint_dispatcher, get_messages){
-//     EndpointDispatcher *dispatcher = new EndpointDispatcher();
-//     const char* messages = dispatcher->postMsg("", false);
-// }
+TEST(dispatcher, deleteMsg){
+    EndpointDispatcher *dispatcher = new EndpointDispatcher();
+    MockDatabase mockDatabase;
+    MockComposer mockComposer;
+    dispatcher->setDatabase(mockDatabase);
+    dispatcher->setHtmlComposer(mockComposer);
 
-// TEST(endpoint_dispatcher, get_messages){
-//     EndpointDispatcher *dispatcher = new EndpointDispatcher();
-//     const char* messages = dispatcher->deleteMsg("", true);
-// }
+    const char *messages = dispatcher->deleteMsg("test", true);
 
-// TEST(endpoint_dispatcher, get_messages){
-//     EndpointDispatcher *dispatcher = new EndpointDispatcher();
-//     const char* messages = dispatcher->deleteMsg("", false);
-// }
+    EXPECT_CALL(mockDatabase, remove("test"))
+        .Times(1);
+
+    EXPECT_CALL(mockComposer, composeRemoved("", true))
+        .Times(1)
+        .WillOnce(Return("<html><body>Removed msg</body></html>"));
+
+    ASSERT_EQ(messages, "<html><body>Removed msg</body></html>");
+}
 
 int main(int argc, char **argv)
 {
