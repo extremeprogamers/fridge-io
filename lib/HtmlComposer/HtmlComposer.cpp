@@ -1,7 +1,7 @@
 #include "HtmlComposerImpl.h"
 
 const char *HtmlComposerImpl::composeSite() {
-    string t = "<!DOCTYPE html>\n"
+    string formStart = "<!DOCTYPE html>\n"
                "<html>\n"
                  "<meta name=\"viewport\" content=\"width=device-width\">\n"
                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
@@ -16,8 +16,8 @@ const char *HtmlComposerImpl::composeSite() {
                              "<th>Actions</th>\n"
                            "</tr>\n"
                          "</thead>\n";
-    string t2 = composeGetMessages();
-    string t3 = "</table>\n"
+    string formNote = composeGetMessages();
+    string formEnd = "</table>\n"
                 "<br> <br> \n"
                 "<form action=\"/\" method=\"post\">\n"
                 "  <b>New note:</b> <input type=\"text\" name=\"note\">\n"
@@ -26,7 +26,7 @@ const char *HtmlComposerImpl::composeSite() {
                 "</div>\n"
                 "</body>\n"
                 "</html>";
-    string out = t + t2 + t3;
+    string out = formStart + formNote + formEnd;
     return out.c_str();
 };
 
