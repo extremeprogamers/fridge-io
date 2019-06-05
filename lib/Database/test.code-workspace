@@ -1,0 +1,39 @@
+{
+	"folders": [
+		{
+			"path": "/Users/sailor/fridge-board"
+		},
+		{
+			"name": "fridge-io",
+			"path": "/Users/sailor/fridge-io"
+		}
+	],
+	"settings": {
+		"terminal.integrated.env.osx": {
+			"PATH": "/Users/sailor/.platformio/penv/bin:/Users/sailor/.platformio/penv:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+			"PLATFORMIO_CALLER": "vscode"
+		},
+		"editor.tokenColorCustomizations": {
+			"textMateRules": [
+				{
+					"scope": "googletest.failed",
+					"settings": {
+						"foreground": "#f00"
+					}
+				},
+				{
+					"scope": "googletest.passed",
+					"settings": {
+						"foreground": "#0f0"
+					}
+				},
+				{
+					"scope": "googletest.run",
+					"settings": {
+						"foreground": "#0f0"
+					}
+				}
+			]
+		}
+	}
+}

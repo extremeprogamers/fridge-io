@@ -6,22 +6,25 @@
 #ifndef FRIDGE1_DATABASE_H
 #define FRIDGE1_DATABASE_H
 
+#include <map>
+#include <memory>
 #include <string>
 #include <vector>
 #include <abstract_database.h>
+#include "message.h"
 
-using namespace std;
 
 class Database : public AbstractDatabase {
-private:
-    vector<string> storage;
-
-public:
+  public:
     Database();
-    bool add(string message);
-    bool remove(string message);
-    vector<string> getAll();
+    bool add(std::string message);
+    bool remove(int id);
     bool clear();
+    std::vector<std::string> getAll();
+
+  private:
+    std::map<int, unique_ptr<Message>> storage;
+    int max_id = 0;
 };
 
-#endif //FRIDGE1_DATABASE_H
+#endif

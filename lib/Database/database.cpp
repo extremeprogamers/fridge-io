@@ -2,27 +2,23 @@
 // Created by Marcin Włoczko on 2019-04-25.
 //
 #include "database.h"
-
-using namespace std;
+#include <memory>
 
 Database :: Database() {
 }
 
-bool Database :: add(string message) {
-    storage.push_back(message);
-    return true;
-}
-
-bool Database ::remove(string message) {
-    storage.erase(storage.begin());
-    return true;
-}
-
-vector<string> Database :: getAll() {
-    return storage;
-}
-
-bool Database ::clear() {
+bool Database::clear() {
     storage.clear();
     return true;
 }
+
+bool Database::add(std::string message) {
+    auto p = std::make_unique(Message(message));
+    storage.emplace(p->id, std::move(p));
+    return true;
+}
+ 
+bool Database::remove(int id) {
+    storage.erase(id);
+    return true;
+};
